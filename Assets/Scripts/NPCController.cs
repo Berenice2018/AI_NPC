@@ -48,10 +48,15 @@ public class NPCController : MonoBehaviour
     /// <summary>
     /// restart conversational pipeline for new entry
     /// </summary>
-    private void BeginListening() => listenerModule.ToggleDictation(true);
-    
+    private void BeginListening()
+    {
+        Debug.Log("### BeginListening= " );
+        listenerModule.ToggleDictation(true);
+    }
+
 
     private void OnSpeakerModuleCancel() {
+        Debug.Log("### OnSpeakerModuleCancel= " );
         if (speakerModule.AudioManager.timeoutClip != null) 
             speakerModule.AudioManager.PlayTimeoutClip();
         
@@ -66,6 +71,7 @@ public class NPCController : MonoBehaviour
 
     // Handle user input
     private void HandleUserInput(string userInput) {
+        Debug.Log("### HandleUserInput= " + userInput);
         // Check for incomplete input (voice dictation error handling)
         if (IsInputIncomplete(userInput)) {
             // Trigger the appropriate response, e.g., request user to repeat
@@ -84,6 +90,7 @@ public class NPCController : MonoBehaviour
     // Check for incomplete input (voice dictation error handling)
     // You can use punctuation or word count thresholds
     private bool IsInputIncomplete(string input) {
+        Debug.Log("### IsInputIncomplete= " + input);
         return false;
     }
 

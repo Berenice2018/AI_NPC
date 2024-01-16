@@ -47,6 +47,7 @@ public class ListenerModule : MonoBehaviour {
     }
 
     public void ToggleDictation(bool state) {
+        Debug.Log($"### ToggleDictation {state}");
         if (state) witDictation.Activate();
         else witDictation.Deactivate();
     }
